@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 offset-3">
+            <div class="card">
+                <input type="hidden" [(ngModel)] = "index">
+                <div class="form-group">
+                    <label for="id">Enter Id:</label>
+                    <input type="text" name="emp_id" class="form-control emp_id" [(ngModel)] = "id">
+                </div>
+                <div class="form-group">
+                    <label for="name">Enter Name:</label>
+                    <input type="text" name="emp_name" class="form-control emp_name" [(ngModel)] = "name">
+                </div>
+                <div class="form-group">
+                    <label for="age">Enter Age:</label>
+                    <input type="text" name="emp_age" class="form-control emp_age" [(ngModel)] = "age">
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="submit" value="{{btn_text}}" (click) = "submit()" class="btn btn-primary">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Actions</th>
+        </tr>
+        <tr *ngFor = "let emp of employees; index as i">
+            <td>{{emp.id}}</td>
+            <td>{{emp.name}}</td>
+            <td>{{emp.age}}</td>
+            <td class="text-center">
+                <a href="" (click) = "edit(emp, i)"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="" class="text-danger" (click) = "delete(i)"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+    </table>
+</div>
