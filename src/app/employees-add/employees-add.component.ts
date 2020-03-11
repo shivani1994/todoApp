@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
-import { EmployeesService} from '../employees.service';
+import { EmployeesService} from '../services/employees.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 

@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="offset-3 col-6">
+        <h3 class="text-primary">Log In</h3>
+        <div class="card mb-3">
+            <div class="card-body">
+                <form [formGroup]="loginForm" novalidate>
+                <div class="form-group">
+                    <label class="col-md-4">Email</label>
+                    <input type="email" class="form-control" formControlName="email" #email placeholder="Email"/>
+                </div>
+                <div *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)" class="alert alert-danger">
+                    <div *ngIf="loginForm.controls['email'].errors.required">
+                        Email Address is required!
+                    </div>
+                    <div *ngIf="loginForm.controls['email'].errors.email">
+                        Not a valid Email Address! 
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4">Password </label>
+                    <input type="password" class="form-control" formControlName="password" #password placeholder="******"/>
+                </div>
+                <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="alert alert-danger">
+                    <div *ngIf="loginForm.controls['password'].errors.required">
+                        Password is required!
+                    </div>
+                    <div *ngIf="loginForm.controls['password'].errors.minlength">
+                        Password must be atleast 6 characters long!
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" (click) = "login()" class="btn btn-primary" [disabled]="loginForm.pristine || loginForm.invalid">Login</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

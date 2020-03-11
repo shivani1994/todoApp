@@ -10,7 +10,7 @@
                 Employee Name is required.
             </div>
             <div *ngIf="angForm.controls['name'].errors.minlength">
-                Employee Name must be 4 characters long.
+                Employee Name must be 4 characters long. 
             </div>
         </div>
         <div class="form-group">
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="form-group">
-            <button type="submit" (click) = "addEmployee()" class="btn btn-primary" [disabled]="angForm.pristine || angForm.invalid">Create Product</button>
+            <button type="submit" (click) = "addEmployee()" class="btn btn-primary" [disabled]="angForm.pristine || angForm.invalid">Create Employee</button>
         </div>
         </form>
     </div>

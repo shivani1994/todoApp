@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { EmployeesService } from './employees.service';
+import { EmployeesService } from './services/employees.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
@@ -21,6 +21,14 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // for animations  
 import {ToastrModule} from 'ngx-toastr';
 import { ErrorComponent } from './error/error.component';
+
+// for firebase
+import {AngularFireModule} from '@angular/fire';
+import {environment} from '../environments/environment';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import { LoginComponent } from './login/login.component';
  
 @NgModule({
   declarations: [
@@ -31,7 +39,8 @@ import { ErrorComponent } from './error/error.component';
     EmployeesComponent,
     EmployeesAddComponent,
     EmployeesEditComponent,
-    ErrorComponent
+    ErrorComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -42,11 +51,19 @@ import { ErrorComponent } from './error/error.component';
     HttpClientModule,
     NgbModule,
     BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'todoApp'),
+    AngularFirestoreModule,     // Only required for database features
+    AngularFireStorageModule,   // Only required for storage features
+    AngularFireAuthModule,      // Only required for auth features,
     ToastrModule.forRoot(),
     RouterModule.forRoot([
       {
         path: '',
-        component: EmployeesComponent
+        component: LoginComponent
+      },
+      {
+        path: 'login',
+        component: LoginComponent
       },
       {
         path: 'employee/create',

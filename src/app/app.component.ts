@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 import { NavigationCancel,
         Event,
@@ -6,6 +6,7 @@ import { NavigationCancel,
         NavigationError,
         NavigationStart,
         Router } from '@angular/router';
+import { AuthenticationService } from './services/authentication.service';
 
 @Component({
     selector: 'app-root',
@@ -13,9 +14,9 @@ import { NavigationCancel,
     styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
     title = 'todoApp';
-    constructor(private loadingBar: SlimLoadingBarService, private router: Router) {
+    constructor(private loadingBar: SlimLoadingBarService, private router: Router, private authService: AuthenticationService) {
         this.router.events.subscribe((event: Event) => {
         this.navigationInterceptor(event);
         });
@@ -34,5 +35,15 @@ export class AppComponent {
         if (event instanceof NavigationError) {
         this.loadingBar.stop();
         }
+    }
+
+    logOut() {
+        console.log("gihkk");
+    this.authService.logOut();
+    console.log(this.authService.userData);
+    }
+
+    ngOnInit() {
+        console.log(this.authService.userData);
     }
 }
