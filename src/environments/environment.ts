@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyA7ZSMEI1ZGTGTf6IF33Z0XWcxXzQChF-A",
-    authDomain: "http://localhost:4200",
-    databaseURL: "https://xxxxxxxxxxxxxx.firebaseio.com",
-    projectId: "fir-auth-angular-app-55293",
-    storageBucket: "xxxxxxxxxxxxxxxxx",
-    messagingSenderId: "xxxxxxxxxxxxxx"
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    databaseURL: "YOUR_DATABASE_URL",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_SENDER_ID"
   }
 };
 
